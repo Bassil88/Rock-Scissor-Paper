@@ -1,8 +1,6 @@
-
 const resultText = document.getElementById("resultText");
 const playerText = document.getElementById("playerText");
 const computerText = document.getElementById("computerText");
-
 const choiceButtons = document.querySelectorAll(".choiceBtn");
 
 let playerChoice;
