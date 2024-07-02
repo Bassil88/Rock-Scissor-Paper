@@ -1,1 +1,1 @@
-https://bassil88.github.io/Rock-Scissor-Paper/
+rock-paper-scissor1111.netlify.app
