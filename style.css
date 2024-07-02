@@ -19,6 +19,7 @@ body {
   button{
     padding: 0.70rem;
     font-size: 3rem;
+    transition: transform 0.5s, background-color 0.2s;
   }
   #computerText ,#playerText{
     font-size: 3rem;
@@ -27,3 +28,8 @@ body {
   #computerText{
     color: rgb(220, 210, 21);
   }
+
+  button:active {
+    transform: scale(3.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
