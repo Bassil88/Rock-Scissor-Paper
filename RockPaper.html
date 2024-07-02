@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <style>
+      body {
+        background-color: black;
+        color: brown;
+        text-align: center;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="resultText">Result:</h1>
+      <h2 class="gameText" id="playerText">Me:</h2>
+      <h2 class="gameText" id="computerText">Computer:</h2>
+
+      <button class="choiceBtn">✊</button>
+      <button class="choiceBtn">✋</button>
+      <button class="choiceBtn">✌️</button>
+    </div>
+
+    <script>
+      const resultText = document.getElementById("resultText");
+      const playerText = document.getElementById("playerText");
+      const computerText = document.getElementById("computerText");
+
+      const choiceButtons = document.querySelectorAll(".choiceBtn");
+
+      let playerChoice;
+      let computerChoice;
+      let gameResult;
+
+      choiceButtons.forEach((button) =>
+        button.addEventListener("click", () => {
+          playerChoice = button.textContent;
+          computerTurn();
+          playerText.textContent = `Me: ${playerChoice}`;
+          computerText.textContent = `Computer: ${computerChoice}`;
+          resultText.textContent = checkWinner();
+        })
+      );
+
+      function checkWinner() {
+        if (playerChoice === computerChoice) {
+          return "Draw!";
+        } else if (computerChoice === "✊") {
+          return playerChoice === "✋" ? "You Win!" : "You Lose!";
+        } else if (computerChoice === "✋") {
+          return playerChoice === "✌️" ? "You Win!" : "You Lose!";
+        } else if (computerChoice === "✌️") {
+          return playerChoice === "✊" ? "You Win!" : "You Lose!";
+        }
+      }
+
+      function computerTurn() {
+        const randomNum = Math.floor(Math.random() * 3);
+        switch (randomNum) {
+          case 0:
+            computerChoice = "✊";
+            break;
+          case 1:
+            computerChoice = "✋";
+            break;
+          case 2:
+            computerChoice = "✌️";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
